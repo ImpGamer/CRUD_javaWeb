@@ -1,0 +1,32 @@
+<!--Dentro de la carpeta templates estara toda la vista-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Personas</title>
+</head>
+<body>
+    <h1>Listado de Personas</h1>
+
+    <table>
+        <tr>
+            <th>ID: </th>
+            <th>Nombre: </th>
+            <th>Edad: </th>
+            <th>Acciones: </th>
+        </tr>
+        <tr th:each="persona : ${listaPersonas}">
+            <td th:text="${persona.getId()}"></td>
+            <td th:text="${persona.getNombre()}"></td>
+            <td th:text="${persona.getEdad()}"></td>
+            <td>
+                <a th:href="@{/personas/editar/{id}(id=${persona.getId()})}">Editar</a>
+                <a th:href="@{/personas/{id}(id=${persona.getId()})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+
+    <a href="/personas/nuevo">Agregar Persona</a>
+
+</body>
+</html>

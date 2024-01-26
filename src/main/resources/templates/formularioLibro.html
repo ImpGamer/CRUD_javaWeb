@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar libro</title>
+</head>
+<body>
+    <h1>Formulario Agregar Libro</h1>
+    <form th:object="${libro}" th:action="${direccion}" method="post">
+        <label><input type="text" placeholder="Titulo" th:field="*{titulo}"></label> <br>
+        <label>Genero Libro
+            <select th:field="*{genero}">
+                <option value="Drama">Drama</option>
+                <option value="Terror">Terror</option>
+                <option value="Romance">Romance</option>
+                <option value="Accion">Accion</option>
+                <option value="Suspenso">Suspenso</option>
+            </select>
+        </label> <br>
+        <label><input type="text" placeholder="Autor" th:field="*{autor}"></label> <br>
+        <label>Cantidad de Hojas<input type="number" th:field="*{paginas}"></label>
+
+        <button type="submit">Guardar Libro</button>
+    </form>
+
+    <p th:text="${error}"></p>
+    <a href="/libros">Regresar Inicio</a>
+
+</body>
+</html>

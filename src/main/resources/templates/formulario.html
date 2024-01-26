@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Persona</title>
+</head>
+<body>
+    <h1>Formulario de Persona</h1>
+    <form th:object="${persona}" th:action="${accion}" method="post"> <!--URL donde mandara el formulario-->
+        <label><input  type="hidden" th:field="*{id}"></label>
+        <!--th:field es el atributo del objeto que le especificamos donde guardara ese dato-->
+        <label><input type="text" placeholder="Ingrese nombre" th:field="*{nombre}"></label>
+        <label>Ingrese edad<input type="number" th:field="*{edad}"></label>
+        <button type="submit">Guardar</button>
+    </form>
+<!--Expresion th:field *{} sirve para darle un identificador "id" al campo y manipularlo-->
+    <a href="/personas">Volver a listado de personas</a>
+
+</body>
+</html>

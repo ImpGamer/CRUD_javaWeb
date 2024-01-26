@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Libros</title>
+</head>
+<body>
+    <h1>Mis Libros</h1>
+    <div th:each="libro: ${librosReg}">
+        <p>ID: <span th:text="${libro.getId()}"></span></p>
+        <p>Titulo: <span th:text="${libro.getTitulo()}"></span></p>
+        <p>Autor: <span th:text="${libro.getAutor()}"></span></p>
+        <p>Genero: <span th:text="${libro.getGenero()}"></span></p>
+        <p>Cantidad Paginas: <span th:text="${libro.getPaginas()}"></span></p>
+        <a th:href="@{/libros/editar/{id}(id=${libro.getId()})}">Editar</a>
+        <a th:href="@{/libros/{id}(id=${libro.getId()})}">Eliminar</a> <br>
+    </div>
+
+    <a href="/libros/nuevo">Agregar Libro</a>
+
+    <h4>Cantidad de libros registrados: <b th:text="${cantLibros}"></b></h4>
+
+</body>
+</html>
